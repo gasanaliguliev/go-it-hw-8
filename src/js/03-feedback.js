@@ -41,5 +41,9 @@ form.addEventListener('submit', (e) => {
     email: '',
     message: '',
   };
-  console.log('Form submitted:', formState);
+  
+  console.log('Form submitted:',  {
+    email: emailInput.value,
+    message: messageInput.value,
+  });
 });

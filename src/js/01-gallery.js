@@ -18,10 +18,6 @@ function onCreateGalleryItem(galleryItems) {
   }).join('');
 }
 
-galleryListEl.addEventListener('click', event => {
-  event.preventDefault();
-  lightbox.open();
-});
 
 const lightbox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
