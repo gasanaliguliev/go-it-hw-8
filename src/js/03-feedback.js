@@ -33,17 +33,21 @@ document.addEventListener('DOMContentLoaded', restoreFormState);
 form.addEventListener('submit', (e) => {
   e.preventDefault();
 
+  const submittedValues = {
+    email: emailInput.value.trim(),
+    message: messageInput.value.trim(),
+  };
+
   localStorage.removeItem('feedback-form-state');
   emailInput.value = '';
   messageInput.value = '';
 
-  const formState = {
-    email: '',
-    message: '',
-  };
-  
-  console.log('Form submitted:',  {
-    email: emailInput.value,
-    message: messageInput.value,
-  });
+  const nonEmptyValues = {};
+  for (const key in submittedValues) {
+    if (submittedValues[key] !== '') {
+      nonEmptyValues[key] = submittedValues[key];
+    }
+  }
+
+  console.log('Submit:', nonEmptyValues);
 });
